@@ -1,11 +1,9 @@
 <template>
     <div class="Specimen">
         <div class="col l3 m6">
-            <div v-if="specimen != null" class="card card-small">
+            <div v-if="specimen != null" class="card card-small" @click="goToDetails()">
                 <div class="card-title">
-                    <router-link :to="'/details/' + id"
-                        ><h4>{{ specimen.Title }}</h4></router-link
-                    >
+                    <h4>{{ specimen.Title }}</h4>
                 </div>
                 <div class="card-image">
                     <img
@@ -40,5 +38,10 @@ export default {
         id: String,
         specimen: Object,
     },
+    methods: {
+        goToDetails () {
+            this.$router.push('/details/' + this.id);
+        }
+    }
 };
 </script>
