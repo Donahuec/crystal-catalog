@@ -1,17 +1,30 @@
 <template>
-  <div id="app" class="container">
-    <List msg="Crystal Catalog"/>
+  <div id="app">
+    <div class="navbar nav-sticky">
+        <h3 class="nav-title">
+            Crystal Catalog
+        </h3>
+        <span id="nav" class="nav-menu-right">
+              <router-link to="/">Home</router-link> |
+              <router-link to="/about">About</router-link>
+        </span>
+    </div>
+    <router-view />
   </div>
 </template>
 
-<script>
-import List from './components/List.vue'
+<style>
 
-export default {
-  name: 'App',
-  components: {
-    List
-  }
+#nav {
+  padding: 30px;
 }
-</script>
 
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
